@@ -8,7 +8,9 @@ public class Main {
         System.out.println("Полный список сотрудников: ");
         int i = 0;
         for (i = 0; i < employeeRegister.length; i++) {
-            System.out.println(employeeRegister[i]);
+            if (employeeRegister[i] != null) {
+                System.out.println(employeeRegister[i]);
+            }
         }
     }
 
@@ -16,23 +18,26 @@ public class Main {
         int salarySumma = 0;
         double averageSalary = 0;
         for (int i = 0; i < employeeRegister.length; i++) {
-            salarySumma += employeeRegister[i].getSalary();
-            averageSalary =  (double) salarySumma / employeeRegister[i].getIdCount();
+            if (employeeRegister[i] != null) {
+                salarySumma += employeeRegister[i].getSalary();
+                averageSalary = (double) salarySumma / employeeRegister[i].getIdCount();
+            }
         }
         System.out.println("Сумма затрат на зарплату в месяц: " + salarySumma);
         System.out.printf("Средний размер зарплаты за месяц: " + "%.2f",averageSalary);
         System.out.println();
-    return  salarySumma;
+        return  salarySumma;
     }
-
 
     public static int countSalaryMin(Employee[] employeeRegister) {
         int salaryMin = 1_000_000;
         String employeeMin = "";
         for (int i = 0; i < employeeRegister.length; i++) {
-            if (salaryMin > employeeRegister[i].getSalary()) {
-                salaryMin = employeeRegister[i].getSalary();
-                employeeMin = employeeRegister[i].getEmployee();
+            if (employeeRegister[i] != null) {
+                if (salaryMin > employeeRegister[i].getSalary()) {
+                    salaryMin = employeeRegister[i].getSalary();
+                    employeeMin = employeeRegister[i].getEmployee();
+                }
             }
         }
         System.out.println("Сотрудник " + employeeMin + " получает минимальную " +
@@ -44,9 +49,11 @@ public class Main {
         int salaryMax = 0;
         String employeeMax = "";
         for (int i = 0; i < employeeRegister.length; i++) {
-            if (salaryMax < employeeRegister[i].getSalary()) {
-                salaryMax = employeeRegister[i].getSalary();
-                employeeMax = employeeRegister[i].getEmployee();
+            if (employeeRegister[i] != null) {
+                if (salaryMax < employeeRegister[i].getSalary()) {
+                    salaryMax = employeeRegister[i].getSalary();
+                    employeeMax = employeeRegister[i].getEmployee();
+                }
             }
         }
         System.out.println("Сотрудник " + employeeMax + " получает самую высокую зарплату" +
@@ -57,7 +64,9 @@ public class Main {
     public static void printFullNameEmployees(Employee[] employeeRegister) {
         System.out.println("Ф.И.О. сотрудников:");
         for (int i = 0; i < employeeRegister.length; i++) {
-            System.out.println(employeeRegister[i].getEmployee());
+            if (employeeRegister[i] != null) {
+                System.out.println(employeeRegister[i].getEmployee());
+            }
         }
     }
 
