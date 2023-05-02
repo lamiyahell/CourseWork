@@ -14,13 +14,14 @@ public class Main {
 
     public static int countSalaryAndAverageSumma(Employee[] employeeRegister) {
         int salarySumma = 0;
-        int averageSalary = 0;
+        double averageSalary = 0;
         for (int i = 0; i < employeeRegister.length; i++) {
             salarySumma += employeeRegister[i].getSalary();
-            averageSalary = salarySumma / employeeRegister.length;
+            averageSalary =  (double) salarySumma / employeeRegister[i].getIdCount();
         }
         System.out.println("Сумма затрат на зарплату в месяц: " + salarySumma);
-        System.out.println("Средний размер зарплаты за месяц: " + averageSalary);
+        System.out.printf("Средний размер зарплаты за месяц: " + "%.2f",averageSalary);
+        System.out.println();
     return  salarySumma;
     }
 
@@ -59,7 +60,6 @@ public class Main {
             System.out.println(employeeRegister[i].getEmployee());
         }
     }
-
 
     public static void main(String[] args) {
         Employee[] employeeRegister = new Employee[10];
@@ -102,7 +102,4 @@ public class Main {
         printFullNameEmployees(employeeRegister);
         printSeparator();
     }
-
-
-
 }
